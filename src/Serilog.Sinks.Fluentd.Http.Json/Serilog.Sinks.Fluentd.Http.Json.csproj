@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <VersionPrefix>0.8.0</VersionPrefix>
+    <Authors>losenkov</Authors>
+    <Description>A Serilog sink that periodically sends log events formatted as JSON to http input plugin of the Fluentd service using POST method.</Description>
+    <PackageTags>serilog;logging;fluentd;</PackageTags>
+    <PackageProjectUrl>https://github.com/Georgy-Losenkov/serilog-sinks-fluentd-http-json</PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Georgy-Losenkov/serilog-sinks-fluentd-http-json.git</RepositoryUrl>
+    <PackageLicenseExpression>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseExpression>
+    <PackageLicenseFile></PackageLicenseFile>
+    <RepositoryType>git</RepositoryType>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.Formatting.Elasticsearch" Version="8.4.1" />
+  </ItemGroup>
+</Project>
