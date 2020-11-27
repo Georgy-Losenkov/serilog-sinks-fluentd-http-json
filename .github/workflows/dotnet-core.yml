@@ -3,8 +3,6 @@ name: .NET Core
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -27,4 +25,5 @@ jobs:
       uses: brandedoutcast/publish-nuget@v2.5.2  
       with:   
         PROJECT_FILE_PATH: src/Serilog.Sinks.Fluentd.Http.Json/Serilog.Sinks.Fluentd.Http.Json.csproj
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+        VERSION_REGEX: ^\s*<VersionPrefix>(.*)<\/VersionPrefix>\s*$
