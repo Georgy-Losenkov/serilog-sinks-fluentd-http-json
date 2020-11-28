@@ -66,15 +66,12 @@ public static LoggerConfiguration Fluentd(
 ```
 
 ### bodySizeLimit
-The size limit of the json sent to fluentd.<br/>So if log event when serialized to json has size greater than bodySizeLimit it will be skipped.<br/>Default value is 32Mb (33554432 bytes). This corresponds to default value of parameter [body_size_limit][] of fluentd http input plugin.
+The size limit of the json sent to fluentd. Default value is 32Mb (33554432 bytes). This corresponds to default value of parameter [body_size_limit][] of fluentd http input plugin.
 
 [body_size_limit]: https://docs.fluentd.org/input/http#body_size_limit
 
 ### flushPeriod
-Interval between communication sessions with fluentd. <br/>Default value is null value. That corresponds to 4 sec.
-
-#### Notes
-When sink is being disposed this value is used as timeout for sending remaining log events to fluentd.
+Interval between communication sessions with fluentd. Default value is null value. That corresponds to 4 sec.<br/>When sink is being disposed this value is used as timeout for sending remaining log events to fluentd.
 
 ### httpTimeout
 Time to wait for submitting to complete. Default value is null value. That corresponds to 3 sec.
