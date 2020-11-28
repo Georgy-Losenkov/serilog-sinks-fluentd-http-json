@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <VersionPrefix>0.8.4</VersionPrefix>
+    <VersionPrefix>0.8.5</VersionPrefix>
     <Authors>losenkov</Authors>
     <Description>A Serilog sink that periodically sends log events formatted as JSON to http input plugin of the Fluentd service using POST method.</Description>
     <PackageTags>serilog;logging;fluentd;</PackageTags>
