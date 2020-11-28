@@ -10,12 +10,12 @@
 * [Features](#features)
 * [Quick start](#quick-start)
 * [Parameters](#parameters)
-  * [Body Size Limit](#body-size-limit)
-  * [Flush Period](#flush-period)
-  * [Http Timeout](#http-timeout)
-  * [Max Queue Size](#max-queue-size)
-  * [Json Formatter](#json-formatter)
-  * [Url](#url)
+  * [bodySizeLimit](#bodysizelimit)
+  * [flushPeriod](#flushperiod)
+  * [httpTimeout](#httptimeout)
+  * [maxQueueSize](#maxqueuesize)
+  * [jsonFormatter](#jsonformatter)
+  * [url](#url)
 
 ## What is this sink
 
@@ -42,7 +42,18 @@ var log = new LoggerConfiguration()
     .CreateLogger();
 ```
 
-## Sink parameters
+To configure the sink through configuration file using [Serilog.Settings.Configuration][], just add { "Name": "Fluentd" } into "WriteTo" section:
+
+[Serilog.Settings.Configuration]: Serilog.Settings.Configuration
+
+```json
+"WriteTo": [
+  ...
+  { "Name": "Fluentd" }
+]
+```
+
+## Parameters
 ```csharp
 public static LoggerConfiguration Fluentd(
     this LoggerSinkConfiguration sinkConfiguration,
@@ -55,22 +66,26 @@ public static LoggerConfiguration Fluentd(
 ```
 
 ### bodySizeLimit
-The body size limit. Default value is 32Mb (33554432 bytes).
+The size limit of the json sent to fluentd.<br/>So if log event when serialized to json has size greater than bodySizeLimit it will be skipped.<br/>Default value is 32Mb (33554432 bytes). This corresponds to default value of parameter [body_size_limit][] of fluentd http input plugin.
+
+[body_size_limit]: https://docs.fluentd.org/input/http#body_size_limit
 
 ### flushPeriod
-The flush period. Default value is 4 sec.
+Interval between communication sessions with fluentd. <br/>Default value is null value. That corresponds to 4 sec.
+
+#### Notes
+When sink is being disposed this value is used as timeout for sending remaining log events to fluentd.
 
 ### httpTimeout
-Time to wait for submitting to complete. Default value is 3 sec.
+Time to wait for submitting to complete. Default value is null value. That corresponds to 3 sec.
 
 ### maxQueueSize
-Maximum size of the queue accumulating log events. Default value is 10000.
+Maximum size of the queue accumulating log events. Default value is 10000. Null value means no limits.
 
 ### jsonFormatter
-The JSON formatter. By default [Serilog.Formatting.ElasticSearch] formatter is used.
+The JSON formatter. By default [Serilog.Formatting.ElasticSearch][] formatter is used.
 
-[Serilog.Formatting.ElasticSearch]: Serilog.Formatting.ElasticSearch
+[Serilog.Formatting.ElasticSearch]: https://github.com/serilog/serilog-sinks-elasticsearch#elasticsearch-formatters
 
 ### url
-The URL of the fluentd http input endpoint appended by the tag name.<br/>
-Because of limitaions of the fluentd http input tag must contain period, e.g logging.log. 
+The URL of the fluentd http input endpoint appended by the tag name.<br/>Because of limitaions of the fluentd http input plugin tag must contain period, e.g logging.log.
