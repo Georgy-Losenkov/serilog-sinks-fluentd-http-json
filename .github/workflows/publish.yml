@@ -27,4 +27,4 @@ jobs:
     - name: Pack
       run: dotnet pack --no-restore --verbosity normal
     - name: Publish  
-      run: dotnet nuget push src/Serilog.Sinks.Fluentd.Http.Json/bin/Release --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_API_KEY}} --skip-duplicate
+      run: dotnet nuget push src/Serilog.Sinks.Fluentd.Http.Json/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_API_KEY}} --skip-duplicate
