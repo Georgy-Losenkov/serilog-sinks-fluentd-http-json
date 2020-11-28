@@ -10,6 +10,12 @@
 * [Features](#features)
 * [Quick start](#quick-start)
 * [Sink parameters](#sink-parameters)
+  * [Body Size Limit](#body-size-limit)
+  * [Flush Period](#flush-period)
+  * [Http Timeout](#http-timeout)
+  * [Max Queue Size](#max-queue-size)
+  * [Json Formatter](#json-formatter)
+  * [Url](#url)
 
 ## What is this sink
 
@@ -37,4 +43,41 @@ var log = new LoggerConfiguration()
 ```
 
 ## Sink parameters
+<a name="body-size-limit"></a>
+```csharp
+System.Int32 bodySizeLimit = 32 * 1024 * 1024
+```
+The body size limit. Default value is 32Mb (33554432 bytes).
 
+<a name="flush-period"></a>
+```csharp
+System.TimeSpan? flushPeriod = null
+```
+The flush period. Default value is 4 sec.
+
+<a name="http-timeout"></a>
+```csharp
+System.TimeSpan? httpTimeout = null
+```
+Time to wait for submitting to complete. Default value is 3 sec.
+
+<a name="max-queue-size"></a>
+```csharp
+System.Int32? maxQueueSize = 10000
+```
+Maximum size of the queue accumulating log events. Default value is 10000.
+
+<a name="json-formatter"></a>
+```csharp
+ITextFormatter jsonFormatter = null
+```
+The JSON formatter. By default [Serilog.Formatting.ElasticSearch] formatter is used.
+
+[Serilog.Formatting.ElasticSearch]: Serilog.Formatting.ElasticSearch
+
+<a name="url"></a>
+```csharp
+System.String url = "http://localhost:8888/logging.log"
+```
+The URL of the fluentd http input endpoint appended by the tag name.<br/>
+Because of limitaions of the fluentd http input tag must contain period, e.g logging.log. 
