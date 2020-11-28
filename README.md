@@ -1,8 +1,8 @@
-# Serilog.Sinks.Fluentd.Http.Json [![verify][]](https://github.com/Georgy-Losenkov/serilog-sinks-fluentd-http-json)
+# Serilog.Sinks.Fluentd.Http.Json [![verify][]](https://github.com/Georgy-Losenkov/serilog-sinks-fluentd-http-json) [![Nuget][]](https://www.nuget.org/packages/Serilog.Sinks.Fluentd.Http.Json)
 
 [verify]: https://github.com/Georgy-Losenkov/serilog-sinks-fluentd-http-json/workflows/verify/badge.svg
 
-[nuget]: https://github.com/Georgy-Losenkov/serilog-sinks-fluentd-http-json/workflows/verify/badge.svg
+[nuget]: https://img.shields.io/nuget/v/Serilog.Sinks.Fluentd.Http.Json
 
 ## Table of contents
 
