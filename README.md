@@ -9,12 +9,7 @@
 * [What is this sink](#what-is-this-sink)
 * [Features](#features)
 * [Quick start](#quick-start)
-* [More information](#more-information)
-  * [A note about fields inside Elasticsearch](#a-note-about-fields-inside-elasticsearch)
-  * [A note about Kibana](#a-note-about-kibana)
-  * [JSON `appsettings.json` configuration](#json-appsettingsjson-configuration)
-  * [Handling errors](#handling-errors)
-  * [Breaking changes](#breaking-changes)
+* [Sink parameters](#sink-parameters)
 
 ## What is this sink
 
@@ -41,5 +36,5 @@ var log = new LoggerConfiguration()
     .CreateLogger();
 ```
 
-## More information
+## Sink parameters
 
