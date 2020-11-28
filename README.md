@@ -44,7 +44,7 @@ var log = new LoggerConfiguration()
 
 To configure the sink through configuration file using [Serilog.Settings.Configuration][], just add { "Name": "Fluentd" } into "WriteTo" section:
 
-[Serilog.Settings.Configuration]: Serilog.Settings.Configuration
+[Serilog.Settings.Configuration]: https://github.com/serilog/serilog-settings-configuration#serilogsettingsconfiguration--
 
 ```json
 "WriteTo": [
