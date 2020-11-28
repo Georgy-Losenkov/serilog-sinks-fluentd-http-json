@@ -27,4 +27,4 @@ jobs:
     - name: Pack
       run: dotnet pack --no-restore --verbosity normal
     - name: Publish  
-      run: dotnet nuget push --apikey ${{secrets.NUGET_API_KEY}} --skip-duplicate
+      run: dotnet nuget push --api-key ${{secrets.NUGET_API_KEY}} --skip-duplicate
